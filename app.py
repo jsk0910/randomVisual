@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import streamlit-folium as sf
+import streamlit_folium as sf
 
 st.title('Random Visual')
 x = 0
