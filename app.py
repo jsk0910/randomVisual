@@ -9,7 +9,7 @@ x = 0
 location = ""
 
 def detectLocation(keyword): # 위치와 타입을 인식
-  if !keyword: 
+  if not keyword: 
     return ("PLACE", "서울특별시청")
 
 def locationSearch(key, keyword):
