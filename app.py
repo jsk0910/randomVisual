@@ -11,6 +11,7 @@ location = ""
 def detectLocation(keyword): # 위치와 타입을 인식
   if not keyword: 
     return ("PLACE", "서울특별시청")
+  return ("PLACE", keyword)
 
 def locationSearch(key, keyword):
   endPoint = "http://api.vworld.kr/req/search?" # vworld endPoint
