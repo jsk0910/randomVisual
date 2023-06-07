@@ -6,8 +6,10 @@ df = pd.DataFrame()
 
 if __name__ == "__main__":
   st.title('Random Visual')
+  st.caption('열의 이름을 작성합니다, 여러 개의 열인 경우 콤마(,)로 구분해주세요')
   t = st.text_input('데이터 이름')
   t1 = t.split(',')
+  st.caption('열에 들어갈 데이터를 작성합니다, 여러 개의 열인 경우 콤마(,)로 구분해주세요')
   d = st.text_input('데이터')
   d1 = d.split(',')
   for i in range(len(t1)):
