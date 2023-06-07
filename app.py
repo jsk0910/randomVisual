@@ -12,3 +12,4 @@ if __name__ == "__main__":
   l = list(map(int, d.split()))
   data.append({t: l})
   df = pd.DataFrame(data)
+  st.dataframe(df)
