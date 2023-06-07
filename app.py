@@ -11,4 +11,4 @@ if __name__ == "__main__":
   df[str(t)] = l
   st.dataframe(df)
   
-  choose = st.radiobutton('그래프 형태 고르기', ['line-chart', 'area-chart'])
+  choose = st.radio('그래프 형태 고르기', ['line-chart', 'area-chart'])
