@@ -4,10 +4,11 @@ import pandas as pd
 
 def initialize():
   st.title('Random Visual')
+  
+numberOfRV = 0
 
 if __name__ == "__main__":
   plusbutton = False
-  numberOfRV = 0
   initialize()
   with st.sidebar:
     plusbutton = st.button('추가')
