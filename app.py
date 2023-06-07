@@ -5,3 +5,5 @@ import pandas as pd
 if __name__ == "__main__":
   t = st.text_input('데이터 이름')
   t
+  data = st.text_input('데이터')
+  data
