@@ -11,6 +11,7 @@ if __name__ == "__main__":
   initialize()
   with st.sidebar:
     if st.button('추가'):
+      st.stop()
       t = st.text_input('데이터 이름')
       value = st.text_area('데이터')
       dataSet.append({t: value})
