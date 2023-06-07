@@ -12,7 +12,7 @@ if __name__ == "__main__":
   d1 = d.split(',')
   for i in d1:
     l = list(map(int, i.split()))
-    df[str(t[i])] = l
+    df[str(t1[i])] = l
   st.dataframe(df)
   
   choose = st.radio('그래프 형태 고르기', ['line-chart', 'area-chart', 'bar-chart'])
