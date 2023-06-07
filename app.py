@@ -10,8 +10,8 @@ if __name__ == "__main__":
   t1 = t.split(',')
   d = st.text_input('데이터')
   d1 = d.split(',')
-  for i in d1:
-    l = list(map(int, i.split()))
+  for i in range(len(t1)):
+    l = list(map(int, d1[i].split()))
     df[str(t1[i])] = l
   st.dataframe(df)
   
