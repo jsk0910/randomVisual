@@ -12,3 +12,5 @@ if __name__ == "__main__":
   st.dataframe(df)
   
   choose = st.radio('그래프 형태 고르기', ['line-chart', 'area-chart'])
+  if choose == 'line-chart':
+    st.line_chart(df)
