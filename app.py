@@ -2,7 +2,7 @@ import folium
 import streamlit as st
 
 from streamlit_folium import st_folium
-import extra-streamlit-components as stx
+import extra_streamlit_components as stx
 
 import json
 import requests
