@@ -2,17 +2,21 @@ import folium
 import streamlit as st
 
 from streamlit_folium import st_folium
+import extra-streamlit-components as stx
 
 import json
 import requests
 
 def initRouter():
-  return stx
+  return stx.Router({'/select': selectWork, '/map': map})
 
 # define 직장선택
+def selectWork():
+  st.title('selectWork')
 
 # define 지도 탭
-def 
+def map():
+  st.title('Map')
 
 def addr_to_lat_lon(addr):
   url = f"https://dapi.kakao.com/v2/local/search/address.json?query={addr}"
@@ -22,6 +26,9 @@ def addr_to_lat_lon(addr):
   return float(match_first['y']), float(match_first['x'])
 
 def main():
+  router = initRouter()
+  router.show_route_view()
+  current_route = router.get_url_route()
   with st.sidebar:
     st.button('직장 선택')
     st.button('탭')
