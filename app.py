@@ -30,9 +30,9 @@ def main():
   router.show_route_view()
   current_route = router.get_url_route()
   with st.sidebar:
-    if st.checkbox('직장 선택'):
+    if st.button('직장 선택'):
       router.route('/select')
-    elif st.checkbox('탭'):
+    elif st.button('탭'):
       router.route('/map')
   center_xy = list(addr_to_lat_lon(address))
   m = folium.Map(location=center_xy, zoom_start=16)
