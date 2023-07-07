@@ -28,7 +28,7 @@ def selectWork():
 def map():
   cookie_manager = get_manager()
   cookies = cookie_manager.get_all()
-  address = cookie_manager.get("work")
+  address = cookie_manager.get(cookie="work")
   st.title('Map')
   st.write(cookies)
   center_xy = list(addr_to_lat_lon(address))
