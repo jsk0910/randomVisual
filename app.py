@@ -46,7 +46,8 @@ def main():
       router.route('/map')
 
 if __name__ == "__main__":
+  API_KEY = "a2f453d9ca3702e131a49655686b4dc8"
   router = initRouter()
   router.show_route_view()
-  API_KEY = "a2f453d9ca3702e131a49655686b4dc8"
+  
   main()
