@@ -25,6 +25,7 @@ def selectWork():
 # define 지도 탭
 def map():
   cookie_manager = get_manager()
+  cookies = cookie_manager.get_all()
   address = cookie_manager.get("work")
   st.title('Map')
   center_xy = list(addr_to_lat_lon(address))
