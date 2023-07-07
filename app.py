@@ -21,6 +21,8 @@ def selectWork():
   cookie_manager = get_manager()
   if st.button('선택'):
     cookie_manager.set("work", "부산광역시 해운대구 수영강변대로 140", expires_at=datetime.datetime(year=2022, month=2, day=2))
+  cookies = cookie_manager.get_all()
+  st.write(cookies)
 
 # define 지도 탭
 def map():
