@@ -6,6 +6,14 @@ from streamlit_folium import st_folium
 import json
 import requests
 
+def initRouter():
+  return stx
+
+# define 직장선택
+
+# define 지도 탭
+def 
+
 def addr_to_lat_lon(addr):
   url = f"https://dapi.kakao.com/v2/local/search/address.json?query={addr}"
   headers = {"Authorization": "KakaoAK " + API_KEY}
@@ -14,6 +22,9 @@ def addr_to_lat_lon(addr):
   return float(match_first['y']), float(match_first['x'])
 
 def main():
+  with st.sidebar:
+    st.button('직장 선택')
+    st.button('탭')
   center_xy = list(addr_to_lat_lon(address))
   m = folium.Map(location=center_xy, zoom_start=16)
   folium.Marker(center_xy, 
@@ -23,9 +34,7 @@ def main():
 
   st_folium(m, width=725, returned_objects=[])
   
-  with st.sidebar:
-    st.button('직장 선택')
-    st.button('탭')
+  
 
 if __name__ == "__main__":
   API_KEY = "a2f453d9ca3702e131a49655686b4dc8"
