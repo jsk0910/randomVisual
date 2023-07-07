@@ -11,7 +11,7 @@ import datetime
 def initRouter():
   return stx.Router({'/select': selectWork, '/map': map})
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data(allow_output_mutation=True)
 def get_manager():
     return stx.CookieManager()
 
