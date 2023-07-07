@@ -15,6 +15,7 @@ def selectWork():
   st.title('selectWork')
   if st.button('선택'):
     st.session_state.address = "부산광역시 해운대구 수영강변대로 140"
+    router.route('/map')
 
 # define 지도 탭
 def map():
