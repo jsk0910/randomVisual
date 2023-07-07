@@ -38,8 +38,6 @@ def addr_to_lat_lon(addr):
   return float(match_first['y']), float(match_first['x'])
 
 def main():
-  router = initRouter()
-  router.show_route_view()
   current_route = router.get_url_route()
   with st.sidebar:
     if st.button('직장 선택'):
@@ -48,5 +46,7 @@ def main():
       router.route('/map')
 
 if __name__ == "__main__":
+  router = initRouter()
+  router.show_route_view()
   API_KEY = "a2f453d9ca3702e131a49655686b4dc8"
   main()
