@@ -28,6 +28,7 @@ def map():
   cookies = cookie_manager.get_all()
   address = cookie_manager.get("work")
   st.title('Map')
+  st.write(cookies)
   center_xy = list(addr_to_lat_lon(address))
   m = folium.Map(location=center_xy, zoom_start=16)
   folium.Marker(center_xy, 
