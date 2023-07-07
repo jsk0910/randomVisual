@@ -6,31 +6,20 @@ import extra_streamlit_components as stx
 
 import json
 import requests
-import datetime
 
 def initRouter():
   return stx.Router({'/select': selectWork, '/map': map})
 
-@st.cache_data(experimental_allow_widgets=True)
-def get_manager():
-    return stx.CookieManager()
-
 # define 직장선택
 def selectWork():
   st.title('selectWork')
-  cookie_manager = get_manager()
   if st.button('선택'):
-    cookie_manager.set("work", "부산광역시 해운대구 수영강변대로 140", expires_at=datetime.datetime(year=2022, month=2, day=2))
-  cookies = cookie_manager.get_all()
-  st.write(cookies)
+    st.session_state.address = "부산광역시 해운대구 수영강변대로 140"
 
 # define 지도 탭
 def map():
-  cookie_manager = get_manager()
-  cookies = cookie_manager.get_all()
-  address = cookie_manager.get(cookie="work")
+  address = st.session_state.address
   st.title('Map')
-  st.write(cookies)
   center_xy = list(addr_to_lat_lon(address))
   m = folium.Map(location=center_xy, zoom_start=16)
   folium.Marker(center_xy, 
