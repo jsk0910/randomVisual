@@ -2,6 +2,7 @@ streamlit
 streamlit-folium
 folium
 extra-streamlit-components
+streamlit-echarts
 pandas
 numpy
 matplotlib
