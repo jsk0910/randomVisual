@@ -102,7 +102,7 @@ def MapMake(address):
     ],
   }
   st_echarts(
-    options=options, height="300px",
+    options=options,
   )
 
   for idx, row in df_subway_distance.iterrows():
