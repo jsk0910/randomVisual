@@ -49,6 +49,8 @@ def dataMake(address):
   df_bus = pd.read_csv('./bus.csv')
   df_hospital = pd.read_csv('./hospital.csv')
 
+  st.write(df_subway)
+
   df_subway_distance = calculate_distance(df_subway, center_xy)
   df_bus_distance = calculate_distance(df_bus, center_xy)
   df_hospital_distance = calculate_distance(df_hospital, center_xy)
