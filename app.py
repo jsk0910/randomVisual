@@ -24,6 +24,8 @@ def calculate_distance(df, center_xy):
   for i in df['latlon']:
     if i != None:
       i = list(i)
+      st.write(i)
+      st.write(center_xy)
       y = abs(float(center_xy[0]) - float(i[0])) * 111
       x = (math.cos(float(center_xy[0])) * 6400 * 2 * 3.14 / 360) * abs(float(center_xy[1]) - float(i[1]))
       distance = math.sqrt(x*x + y*y)
