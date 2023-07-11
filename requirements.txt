@@ -2,3 +2,6 @@ streamlit
 streamlit-folium
 folium
 extra-streamlit-components
+pandas
+numpy
+matplotlib
