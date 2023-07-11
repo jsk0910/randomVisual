@@ -67,13 +67,15 @@ def dataMake(address):
               icon=(folium.Icon(color='green', icon='train-subway', prefix='fa'))
               ).add_to(m)
   for idx, row in df_bus_distance.iterrows():
-    folium.Marker(list(row['latlon']),
+    loc = row['latlon'][1:-1].split(', ')
+    folium.Marker(loc,
               popup=row['정류장명'],
               tooltip=row['정류장명'],
               icon=(folium.Icon(color='blue', icon='bus', prefix='fa'))
               ).add_to(m)
   for idx, row in df_hospital_distance.iterrows():
-    folium.Marker(list(row['latlon']),
+    loc = row['latlon'][1:-1].split(', ')
+    folium.Marker(loc,
               popup=row['의료기관명'],
               tooltip=row['의료기관명'],
               icon=(folium.Icon(color='orange', icon='hospital', prefix='fa'))
