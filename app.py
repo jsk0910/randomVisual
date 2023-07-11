@@ -37,7 +37,8 @@ def calculate_distance(df, center_xy):
 
   return df_distance
 
-def dataMake(address):
+# 지도 생성
+def MapMake(address):
   center_xy = list(addr_to_lat_lon(address))
   m = folium.Map(location=center_xy, zoom_start=16)
   folium.Marker(center_xy, 
@@ -97,7 +98,7 @@ def selectWork():
 def map():
   address = st.session_state.address
   st.title('Map')
-  m = dataMake(address)
+  m = MapMake(address)
 
   st_folium(m, width=725, returned_objects=[])
 
