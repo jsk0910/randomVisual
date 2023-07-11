@@ -7,6 +7,64 @@ import extra_streamlit_components as stx
 import json
 import requests
 
+# data
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.path import Path
+from matplotlib.spines import Spine
+from matplotlib.transforms import Affine2D
+import matplotlib as mpl
+import math
+
+# calculator distance
+def calculate_distance(df):
+  df_distance = pd.DataFrame()
+  distance_list = []
+  for i in df['latlon']:
+    if i != None:
+      i = list(i)
+      y = abs(center_xy[0] - i[0]) * 111
+      x = (math.cos(center_xy[0]) * 6400 * 2 * 3.14 / 360) * abs(center_xy[1] - i[1])
+      distance = math.sqrt(x*x + y*y)
+      if distance <= 3.0:
+        df_distance = pd.concat([df_distance, df[df['latlon'] == tuple(i)]])
+        distance_list.append(distance)
+
+  df_distance = df_distance.drop_duplicates()
+  df_distance['distance'] = distance_list
+
+  return df_distance
+
+def dataMake():
+  df_subway = pd.read_csv('./subway.csv', encoding='CP949')
+  df_bus = pd.read_csv('./bus.csv')
+  df_hospital = pd.read_csv('./hospital.csv')
+
+  df_subway_distance = calculate_distance(df_subway)
+  df_bus_distance = calculate_distance(df_bus)
+  df_hospital_distance = calculate_distance(df_hospital)
+  
+  for idx, row in df_subway_distance.iterrows():
+  folium.Marker(row['latlon'],
+              popup=row['선명'] + ' ' + row['역명'],
+              tooltip=row['선명'] + ' ' + row['역명'],
+              icon=(folium.Icon(color='green', icon='train-subway', prefix='fa'))
+              ).add_to(m)
+  for idx, row in df_bus_distance.iterrows():
+  folium.Marker(row['latlon'],
+              popup=row['정류장명'],
+              tooltip=row['정류장명'],
+              icon=(folium.Icon(color='blue', icon='bus', prefix='fa'))
+              ).add_to(m)
+  for idx, row in df_hospital_distance.iterrows():
+  folium.Marker(row['latlon'],
+              popup=row['의료기관명'],
+              tooltip=row['의료기관명'],
+              icon=(folium.Icon(color='orange', icon='hospital', prefix='fa'))
+              ).add_to(m)
+
+# streamlit Router
 def initRouter():
   return stx.Router({'/select': selectWork, '/map': map})
 
@@ -27,6 +85,8 @@ def map():
                 popup="회사명",
                 tooltip="회사명"
                 ).add_to(m)
+
+  dataMake()
 
   st_folium(m, width=725, returned_objects=[])
 
