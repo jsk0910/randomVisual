@@ -19,6 +19,7 @@ import math
 
 # calculator distance
 def calculate_distance(df, center_xy):
+  st.write(df)
   df_distance = pd.DataFrame()
   distance_list = []
   for i in df['latlon']:
@@ -34,8 +35,6 @@ def calculate_distance(df, center_xy):
 
   df_distance = df_distance.drop_duplicates()
   df_distance['distance'] = distance_list
-
-  st.write(df_distance)
 
   return df_distance
 
