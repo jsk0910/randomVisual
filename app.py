@@ -35,6 +35,8 @@ def calculate_distance(df, center_xy):
   df_distance = df_distance.drop_duplicates()
   df_distance['distance'] = distance_list
 
+  st.write(df_distance)
+
   return df_distance
 
 def dataMake(address):
