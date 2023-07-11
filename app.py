@@ -18,7 +18,7 @@ import matplotlib as mpl
 import math
 
 # calculator distance
-def calculate_distance(df):
+def calculate_distance(df, center_xy):
   df_distance = pd.DataFrame()
   distance_list = []
   for i in df['latlon']:
@@ -36,14 +36,14 @@ def calculate_distance(df):
 
   return df_distance
 
-def dataMake():
+def dataMake(center_xy):
   df_subway = pd.read_csv('./subway.csv')
   df_bus = pd.read_csv('./bus.csv')
   df_hospital = pd.read_csv('./hospital.csv')
 
-  df_subway_distance = calculate_distance(df_subway)
-  df_bus_distance = calculate_distance(df_bus)
-  df_hospital_distance = calculate_distance(df_hospital)
+  df_subway_distance = calculate_distance(df_subway, center_xy)
+  df_bus_distance = calculate_distance(df_bus, center_xy)
+  df_hospital_distance = calculate_distance(df_hospital, center_xy)
   
   for idx, row in df_subway_distance.iterrows():
     folium.Marker(row['latlon'],
@@ -86,7 +86,7 @@ def map():
                 tooltip="회사명"
                 ).add_to(m)
 
-  dataMake()
+  dataMake(center_xy)
 
   st_folium(m, width=725, returned_objects=[])
 
