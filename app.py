@@ -57,6 +57,8 @@ def dataMake(address):
   df_bus_distance = df_bus_distance.astype({'latlon' : 'object'})
   df_hospital_distance = df_hospital_distance.astype({'latlon' : 'object'})
 
+  st.write(df_subway_distance.dtypes)
+
   for idx, row in df_subway_distance.iterrows():
     folium.Marker(row['latlon'],
               popup=str(row['선명']) + ' ' + str(row['역명']),
