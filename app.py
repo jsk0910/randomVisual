@@ -23,7 +23,7 @@ def calculate_distance(df, center_xy):
   distance_list = []
   for i in df['latlon']:
     if i != None:
-      i = tuple(map(float, i[1:-1].split(',')))
+      i = i[1:-1].split(', ')
       st.write(i)
       st.write(center_xy)
       y = abs(float(center_xy[0]) - float(i[0])) * 111
