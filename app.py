@@ -94,9 +94,9 @@ def MapMake(address):
         },
         "labelLine": {"show": False},
         "data": [
-          {"value": df_graph.iloc[0]['subway'].astype(int), "name": "지하철역"},
-          {"value": df_graph.iloc[0]['bus'].astype(int), "name": "버스정류장"},
-          {"value": df_graph.iloc[0]['hospital'].astype(int), "name": "병원"},
+          {"value": int(df_graph.iloc[0]['subway']), "name": "지하철역"},
+          {"value": int(df_graph.iloc[0]['bus']), "name": "버스정류장"},
+          {"value": int(df_graph.iloc[0]['hospital']), "name": "병원"},
         ],
       }
     ],
