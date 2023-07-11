@@ -74,7 +74,6 @@ def MapMake(address):
                     len(df_hospital_distance.loc[(df_hospital_distance['distance'] > 0.5) & (df_hospital_distance['distance'] <= 1.0)]),
                     len(df_hospital_distance.loc[(df_hospital_distance['distance'] > 1.0) & (df_hospital_distance['distance'] <= 3.0)])]
 
-  with st.sidebar:
     options = {
       "tooltip": {"trigger": "item"},
       "legend": {"top": "5%", "left": "center"},
