@@ -43,7 +43,8 @@ def MapMake(address):
   m = folium.Map(location=center_xy, zoom_start=16)
   folium.Marker(center_xy, 
                 popup="회사명",
-                tooltip="회사명"
+                tooltip="회사명",
+                icon=(folium.Icon(color='red', icon='company', prefix='fa'))
                 ).add_to(m)
   
   df_subway = pd.read_csv('./subway.csv')
@@ -77,7 +78,7 @@ def MapMake(address):
     folium.Marker(loc,
               popup=row['의료기관명'],
               tooltip=row['의료기관명'],
-              icon=(folium.Icon(color='orange', icon='hospital', prefix='fa'))
+              icon=(folium.Icon(color='orange', icon='circle-h', prefix='fa'))
               ).add_to(m)
   return m
 
