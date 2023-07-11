@@ -26,12 +26,11 @@ def calculate_distance(df, center_xy):
     if i != None or i != '':
       if type(i) == str:
         i = i[1:-1].split(', ')
-        st.write(i)
         y = abs(float(center_xy[0]) - float(i[0])) * 111
         x = (math.cos(float(center_xy[0])) * 6400 * 2 * 3.14 / 360) * abs(float(center_xy[1]) - float(i[1]))
         distance = math.sqrt(x*x + y*y)
         if distance <= 3.0:
-          df_distance = pd.concat([df_distance, df[df['latlon'] == (i)]])
+          df_distance = pd.concat([df_distance, df[df['latlon'] == ('(' + i[0] + ', ' + i[1] + ')')]])
           distance_list.append(distance)
 
   df_distance = df_distance.drop_duplicates()
