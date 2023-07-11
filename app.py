@@ -30,7 +30,7 @@ def calculate_distance(df, center_xy):
         x = (math.cos(float(center_xy[0])) * 6400 * 2 * 3.14 / 360) * abs(float(center_xy[1]) - float(i[1]))
         distance = math.sqrt(x*x + y*y)
         if distance <= 3.0:
-          df_distance = pd.concat([df_distance, df[df['latlon'] == tuple(i)]])
+          df_distance = pd.concat([df_distance, df[df['latlon'] == (i)]])
           distance_list.append(distance)
 
   df_distance = df_distance.drop_duplicates()
@@ -49,9 +49,7 @@ def dataMake(address):
   df_subway = pd.read_csv('./subway.csv')
   df_bus = pd.read_csv('./bus.csv')
   df_hospital = pd.read_csv('./hospital.csv')
-
-  st.write(df_subway)
-
+  
   df_subway_distance = calculate_distance(df_subway, center_xy)
   df_bus_distance = calculate_distance(df_bus, center_xy)
   df_hospital_distance = calculate_distance(df_hospital, center_xy)
