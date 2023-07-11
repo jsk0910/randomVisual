@@ -90,7 +90,7 @@ def MapMake(address):
         },
         "label": {"show": False, "position": "center"},
         "emphasis": {
-          "label": {"show": True, "fontSize": "40", "fontWeight": "bold"}
+          "label": {"show": True, "fontSize": "20", "fontWeight": "bold"}
         },
         "labelLine": {"show": False},
         "data": [
@@ -111,13 +111,34 @@ def MapMake(address):
         },
         "label": {"show": False, "position": "center"},
         "emphasis": {
-          "label": {"show": True, "fontSize": "40", "fontWeight": "bold"}
+          "label": {"show": True, "fontSize": "20", "fontWeight": "bold"}
         },
         "labelLine": {"show": False},
         "data": [
           {"value": int(df_graph.iloc[1]['subway']), "name": "지하철역"},
           {"value": int(df_graph.iloc[1]['bus']), "name": "버스정류장"},
           {"value": int(df_graph.iloc[1]['hospital']), "name": "병원"},
+        ],
+      },
+      {
+        "name": "500m",
+        "type": "pie",
+        "radius": ["70%", "100%"],
+        "avoidLabelOverlap": False,
+        "itemStyle": {
+          "borderRadius": 15,
+          "borderColor": "#fff",
+          "borderWidth": 2,
+        },
+        "label": {"show": False, "position": "center"},
+        "emphasis": {
+          "label": {"show": True, "fontSize": "20", "fontWeight": "bold"}
+        },
+        "labelLine": {"show": False},
+        "data": [
+          {"value": int(df_graph.iloc[2]['subway']), "name": "지하철역"},
+          {"value": int(df_graph.iloc[2]['bus']), "name": "버스정류장"},
+          {"value": int(df_graph.iloc[2]['hospital']), "name": "병원"},
         ],
       }
     ],
