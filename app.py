@@ -3,6 +3,7 @@ import streamlit as st
 
 from streamlit_folium import st_folium
 import extra_streamlit_components as stx
+from streamlit_echarts import st_echarts
 
 import json
 import requests
@@ -58,6 +59,52 @@ def MapMake(address):
   df_subway_distance = df_subway_distance.astype({'latlon' : 'object'})
   df_bus_distance = df_bus_distance.astype({'latlon' : 'object'})
   df_hospital_distance = df_hospital_distance.astype({'latlon' : 'object'})
+
+  df_graph = pd.DataFrame({'distance': ['500m', '1km', '3km']})
+
+  df_graph['subway'] = [len(df_subway_distance.loc[df_subway_distance['distance'] <= 0.5]),
+                    len(df_subway_distance.loc[(df_subway_distance['distance'] > 0.5) & (df_subway_distance['distance'] <= 1.0)]),
+                    len(df_subway_distance.loc[(df_subway_distance['distance'] > 1.0) & (df_subway_distance['distance'] <= 3.0)])]
+
+  df_graph['bus'] = [len(df_bus_distance.loc[df_bus_distance['distance'] <= 0.5]),
+                    len(df_bus_distance.loc[(df_bus_distance['distance'] > 0.5) & (df_bus_distance['distance'] <= 1.0)]),
+                    len(df_bus_distance.loc[(df_bus_distance['distance'] > 1.0) & (df_bus_distance['distance'] <= 3.0)])]
+
+  df_graph['hospital'] = [len(df_hospital_distance.loc[df_hospital_distance['distance'] <= 0.5]),
+                    len(df_hospital_distance.loc[(df_hospital_distance['distance'] > 0.5) & (df_hospital_distance['distance'] <= 1.0)]),
+                    len(df_hospital_distance.loc[(df_hospital_distance['distance'] > 1.0) & (df_hospital_distance['distance'] <= 3.0)])]
+
+  with st.sidebar:
+    options = {
+    "tooltip": {"trigger": "item"},
+    "legend": {"top": "5%", "left": "center"},
+    "series": [
+        {
+            "name": "인프라",
+            "type": "pie",
+            "radius": ["40%", "70%"],
+            "avoidLabelOverlap": False,
+            "itemStyle": {
+                "borderRadius": 10,
+                "borderColor": "#fff",
+                "borderWidth": 2,
+            },
+            "label": {"show": False, "position": "center"},
+            "emphasis": {
+                "label": {"show": True, "fontSize": "40", "fontWeight": "bold"}
+            },
+            "labelLine": {"show": False},
+            "data": [
+                {"value": df_graph.iloc[0]['subway'], "name": "지하철역"},
+                {"value": df_graph.iloc[0]['bus'], "name": "버스정류장"},
+                {"value": df_graph.iloc[0]['hospital'], "name": "병원"},
+            ],
+        }
+    ],
+  }
+  st_echarts(
+      options=options, height="300px",
+  )
 
   for idx, row in df_subway_distance.iterrows():
     loc = row['latlon'][1:-1].split(', ')
