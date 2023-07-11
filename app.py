@@ -81,7 +81,7 @@ def MapMake(address):
       {
         "name": "500m",
         "type": "pie",
-        "radius": ["40%", "70%"],
+        "radius": ["20%", "40%"],
         "avoidLabelOverlap": False,
         "itemStyle": {
           "borderRadius": 10,
