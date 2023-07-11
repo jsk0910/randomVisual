@@ -100,11 +100,11 @@ def MapMake(address):
                 {"value": df_graph.iloc[0]['hospital'], "name": "병원"},
             ],
         }
-    ],
-  }
-  st_echarts(
+      ],
+    }
+    st_echarts(
       options=options, height="300px",
-  )
+    )
 
   for idx, row in df_subway_distance.iterrows():
     loc = row['latlon'][1:-1].split(', ')
