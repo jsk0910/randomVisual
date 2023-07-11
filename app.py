@@ -76,35 +76,35 @@ def MapMake(address):
 
   with st.sidebar:
     options = {
-    "tooltip": {"trigger": "item"},
-    "legend": {"top": "5%", "left": "center"},
-    "series": [
-        {
-            "name": "인프라",
-            "type": "pie",
-            "radius": ["40%", "70%"],
-            "avoidLabelOverlap": False,
-            "itemStyle": {
-                "borderRadius": 10,
-                "borderColor": "#fff",
-                "borderWidth": 2,
-            },
-            "label": {"show": False, "position": "center"},
-            "emphasis": {
-                "label": {"show": True, "fontSize": "40", "fontWeight": "bold"}
-            },
-            "labelLine": {"show": False},
-            "data": [
-                {"value": df_graph.iloc[0]['subway'], "name": "지하철역"},
-                {"value": df_graph.iloc[0]['bus'], "name": "버스정류장"},
-                {"value": df_graph.iloc[0]['hospital'], "name": "병원"},
-            ],
-        }
-      ],
+      "tooltip": {"trigger": "item"},
+      "legend": {"top": "5%", "left": "center"},
+      "series": [
+          {
+              "name": "인프라",
+              "type": "pie",
+              "radius": ["40%", "70%"],
+              "avoidLabelOverlap": False,
+              "itemStyle": {
+                  "borderRadius": 10,
+                  "borderColor": "#fff",
+                  "borderWidth": 2,
+              },
+              "label": {"show": False, "position": "center"},
+              "emphasis": {
+                  "label": {"show": True, "fontSize": "40", "fontWeight": "bold"}
+              },
+              "labelLine": {"show": False},
+              "data": [
+                  {"value": df_graph.iloc[0]['subway'], "name": "지하철역"},
+                  {"value": df_graph.iloc[0]['bus'], "name": "버스정류장"},
+                  {"value": df_graph.iloc[0]['hospital'], "name": "병원"},
+                ],
+          }
+        ],
     }
-    st_echarts(
-      options=options, height="300px",
-    )
+      st_echarts(
+        options=options, height="300px",
+      )
 
   for idx, row in df_subway_distance.iterrows():
     loc = row['latlon'][1:-1].split(', ')
