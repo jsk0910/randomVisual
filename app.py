@@ -22,7 +22,7 @@ def calculate_distance(df, center_xy):
   df_distance = pd.DataFrame()
   distance_list = []
   for i in df['latlon']:
-    if i != None:
+    if i != None or i != '':
       if type(i) == str:
         i = i[1:-1].split(', ')
         st.write(i)
