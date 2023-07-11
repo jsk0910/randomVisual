@@ -37,7 +37,7 @@ def calculate_distance(df):
   return df_distance
 
 def dataMake():
-  df_subway = pd.read_csv('./subway.csv', encoding='CP949')
+  df_subway = pd.read_csv('./subway.csv')
   df_bus = pd.read_csv('./bus.csv')
   df_hospital = pd.read_csv('./hospital.csv')
 
