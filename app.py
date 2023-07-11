@@ -56,7 +56,7 @@ def dataMake(address):
 
   st.write(df_subway_distance)
   for idx, row in df_subway_distance.iterrows():
-    folium.Marker(row['latlon'].tolist(),
+    folium.Marker(row['latlon'],
               popup=str(row['선명']) + ' ' + str(row['역명']),
               tooltip=str(row['선명']) + ' ' + str(row['역명']),
               icon=(folium.Icon(color='green', icon='train-subway', prefix='fa'))
