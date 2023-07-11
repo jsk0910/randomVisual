@@ -64,7 +64,7 @@ def MapMake(address):
     folium.Marker(loc,
               popup=str(row['선명']) + ' ' + str(row['역명']),
               tooltip=str(row['선명']) + ' ' + str(row['역명']),
-              icon=(folium.Icon(color='green', icon='train-subway', prefix='fa'))
+              icon=(folium.Icon(color='green', icon='train', prefix='fa'))
               ).add_to(m)
   for idx, row in df_bus_distance.iterrows():
     loc = row['latlon'][1:-1].split(', ')
