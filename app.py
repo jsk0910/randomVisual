@@ -36,7 +36,14 @@ def calculate_distance(df, center_xy):
 
   return df_distance
 
-def dataMake(center_xy):
+def dataMake(address):
+  center_xy = list(addr_to_lat_lon(address))
+  m = folium.Map(location=center_xy, zoom_start=16)
+  folium.Marker(center_xy, 
+                popup="회사명",
+                tooltip="회사명"
+                ).add_to(m)
+  
   df_subway = pd.read_csv('./subway.csv')
   df_bus = pd.read_csv('./bus.csv')
   df_hospital = pd.read_csv('./hospital.csv')
@@ -63,6 +70,7 @@ def dataMake(center_xy):
               tooltip=row['의료기관명'],
               icon=(folium.Icon(color='orange', icon='hospital', prefix='fa'))
               ).add_to(m)
+  return m
 
 # streamlit Router
 def initRouter():
@@ -79,14 +87,7 @@ def selectWork():
 def map():
   address = st.session_state.address
   st.title('Map')
-  center_xy = list(addr_to_lat_lon(address))
-  m = folium.Map(location=center_xy, zoom_start=16)
-  folium.Marker(center_xy, 
-                popup="회사명",
-                tooltip="회사명"
-                ).add_to(m)
-
-  dataMake(center_xy)
+  m = dataMake(address)
 
   st_folium(m, width=725, returned_objects=[])
 
