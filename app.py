@@ -58,8 +58,6 @@ def MapMake(address):
   df_bus_distance = df_bus_distance.astype({'latlon' : 'object'})
   df_hospital_distance = df_hospital_distance.astype({'latlon' : 'object'})
 
-  st.write(df_subway_distance.dtypes)
-
   for idx, row in df_subway_distance.iterrows():
     loc = row['latlon'][1:-1].split(', ')
     folium.Marker(loc,
