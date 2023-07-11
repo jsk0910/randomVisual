@@ -78,7 +78,7 @@ def MapMake(address):
     folium.Marker(loc,
               popup=row['의료기관명'],
               tooltip=row['의료기관명'],
-              icon=(folium.Icon(color='orange', icon='circle-h', prefix='fa'))
+              icon=(folium.Icon(color='orange', icon='star-of-life', prefix='fa'))
               ).add_to(m)
   return m
 
