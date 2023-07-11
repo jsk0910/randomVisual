@@ -100,7 +100,7 @@ def MapMake(address):
         ],
       },
       {
-        "name": "500m",
+        "name": "1km",
         "type": "pie",
         "radius": ["40%", "70%"],
         "avoidLabelOverlap": False,
@@ -121,12 +121,12 @@ def MapMake(address):
         ],
       },
       {
-        "name": "500m",
+        "name": "3km",
         "type": "pie",
         "radius": ["70%", "100%"],
         "avoidLabelOverlap": False,
         "itemStyle": {
-          "borderRadius": 15,
+          "borderRadius": 20,
           "borderColor": "#fff",
           "borderWidth": 2,
         },
