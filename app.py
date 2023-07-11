@@ -19,7 +19,6 @@ import math
 
 # calculator distance
 def calculate_distance(df, center_xy):
-  st.write(df)
   df_distance = pd.DataFrame()
   distance_list = []
   for i in df['latlon']:
