@@ -54,7 +54,7 @@ def dataMake(address):
   df_hospital_distance = calculate_distance(df_hospital, center_xy)
   
   for idx, row in df_subway_distance.iterrows():
-    folium.Marker(row['latlon'],
+    folium.Marker(row['latlon'].tolist(),
               popup=str(row['선명']) + ' ' + str(row['역명']),
               tooltip=str(row['선명']) + ' ' + str(row['역명']),
               icon=(folium.Icon(color='green', icon='train-subway', prefix='fa'))
