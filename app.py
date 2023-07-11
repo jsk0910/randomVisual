@@ -102,9 +102,9 @@ def MapMake(address):
           }
         ],
     }
-      st_echarts(
-        options=options, height="300px",
-      )
+    st_echarts(
+      options=options, height="300px",
+    )
 
   for idx, row in df_subway_distance.iterrows():
     loc = row['latlon'][1:-1].split(', ')
