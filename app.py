@@ -71,7 +71,7 @@ def MapMake(address):
     folium.Marker(loc,
               popup=row['정류장명'],
               tooltip=row['정류장명'],
-              icon=(folium.Icon(color='#67F70A', icon='bus', prefix='fa'))
+              icon=(folium.Icon(color='green', icon='bus', prefix='fa'))
               ).add_to(m)
   for idx, row in df_hospital_distance.iterrows():
     loc = row['latlon'][1:-1].split(', ')
