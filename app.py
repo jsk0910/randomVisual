@@ -24,10 +24,8 @@ def calculate_distance(df, center_xy):
   for i in df['latlon']:
     if i != None:
       i = list(i)
-      st.write(type(i[0]))
-      st.write(type(center_xy[0]))
-      y = abs(center_xy[0] - i[0]) * 111
-      x = (math.cos(center_xy[0]) * 6400 * 2 * 3.14 / 360) * abs(center_xy[1] - i[1])
+      y = abs(float(center_xy[0]) - float(i[0])) * 111
+      x = (math.cos(float(center_xy[0])) * 6400 * 2 * 3.14 / 360) * abs(float(center_xy[1]) - float(i[1]))
       distance = math.sqrt(x*x + y*y)
       if distance <= 3.0:
         df_distance = pd.concat([df_distance, df[df['latlon'] == tuple(i)]])
