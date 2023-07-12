@@ -82,7 +82,7 @@ def makeMap(address):
                     len(df_museum_distance.loc[(df_museum_distance['distance'] > 1.0) & (df_museum_distance['distance'] <= 3.0)])]
 
   options = {
-    "title": {"show": True, "text": "500m"},
+    "title": {"show": True, "subtext": "500m", "subtextStyle": {"align": "center", }},
     "tooltip": {"trigger": "item"},
     "legend": {"top": "0%", "left": "center"},
     "series": [
