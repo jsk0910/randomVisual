@@ -154,7 +154,7 @@ def makeMap(address):
     ],
   }
   st_echarts(
-    options=options,
+    options=options, width=500
   )
   
   makeMarker(m, df_subway_distance, 'green', 'train')
