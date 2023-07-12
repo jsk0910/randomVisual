@@ -193,7 +193,7 @@ def main():
   with st.sidebar:
     if st.button('직장 선택'):
       router.route('/select')
-    elif st.button('탭'):
+    elif st.button('인프라 확인'):
       router.route('/map')
 
 if __name__ == "__main__":
