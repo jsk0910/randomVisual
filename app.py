@@ -168,8 +168,17 @@ def MapMake(address):
               tooltip=row['의료기관명'],
               icon=(folium.Icon(color='red', icon='plus', prefix='fa'))
               ).add_to(m)
+  makeMarker(m, df_subway_distance, 'green', 'train')
   return m
 
+def makeMarker(m, df, color, icon):
+  for idx, row in df.iterrows():
+    loc = row['latlon'][1:-1].split(', ')
+    folium.Marker(loc,
+                  popup=row['name'],
+                  tooltip=row['name'],
+                  icon=(folium.Icon(color=color, icon=icon, prefix='fa'))
+                 ).add_to(m)
 # streamlit Router
 def initRouter():
   return stx.Router({'/select': selectWork, '/map': map})
