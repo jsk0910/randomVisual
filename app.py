@@ -146,31 +146,13 @@ def MapMake(address):
   st_echarts(
     options=options,
   )
-
-  for idx, row in df_subway_distance.iterrows():
-    loc = row['latlon'][1:-1].split(', ')
-    folium.Marker(loc,
-              popup=str(row['선명']) + ' ' + str(row['역명']),
-              tooltip=str(row['선명']) + ' ' + str(row['역명']),
-              icon=(folium.Icon(color='green', icon='train', prefix='fa'))
-              ).add_to(m)
-  for idx, row in df_bus_distance.iterrows():
-    loc = row['latlon'][1:-1].split(', ')
-    folium.Marker(loc,
-              popup=row['정류장명'],
-              tooltip=row['정류장명'],
-              icon=(folium.Icon(color='green', icon='bus', prefix='fa'))
-              ).add_to(m)
-  for idx, row in df_hospital_distance.iterrows():
-    loc = row['latlon'][1:-1].split(', ')
-    folium.Marker(loc,
-              popup=row['의료기관명'],
-              tooltip=row['의료기관명'],
-              icon=(folium.Icon(color='red', icon='plus', prefix='fa'))
-              ).add_to(m)
-  #makeMarker(m, df_subway_distance, 'green', 'train')
+  
+  makeMarker(m, df_subway_distance, 'green', 'train')
+  makeMarker(m, df_bus_distance, 'green', 'bus')
+  makeMarker(m, df_hospital_distance, 'white', 'plus')
   return m
 
+# Marker
 def makeMarker(m, df, color, icon):
   for idx, row in df.iterrows():
     loc = row['latlon'][1:-1].split(', ')
@@ -179,6 +161,7 @@ def makeMarker(m, df, color, icon):
                   tooltip=row['name'],
                   icon=(folium.Icon(color=color, icon=icon, prefix='fa'))
                  ).add_to(m)
+    
 # streamlit Router
 def initRouter():
   return stx.Router({'/select': selectWork, '/map': map})
