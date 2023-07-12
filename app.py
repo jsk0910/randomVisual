@@ -168,7 +168,7 @@ def MapMake(address):
               tooltip=row['의료기관명'],
               icon=(folium.Icon(color='red', icon='plus', prefix='fa'))
               ).add_to(m)
-  makeMarker(m, df_subway_distance, 'green', 'train')
+  #makeMarker(m, df_subway_distance, 'green', 'train')
   return m
 
 def makeMarker(m, df, color, icon):
