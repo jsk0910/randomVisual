@@ -86,7 +86,7 @@ def makeMap(address):
     "legend": {"top": "0%", "left": "center"},
     "series": [
       {
-        "title": "500m",
+        "title": {"show": True, "text": "500m"},
         "name": "500m",
         "type": "pie",
         "radius": ["20%", "40%"],
