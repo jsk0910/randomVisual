@@ -82,11 +82,11 @@ def makeMap(address):
                     len(df_museum_distance.loc[(df_museum_distance['distance'] > 1.0) & (df_museum_distance['distance'] <= 3.0)])]
 
   options = {
+    "title": {"show": True, "text": "500m"},
     "tooltip": {"trigger": "item"},
     "legend": {"top": "0%", "left": "center"},
     "series": [
       {
-        "title": {"show": True, "text": "500m"},
         "name": "500m",
         "type": "pie",
         "radius": ["20%", "40%"],
@@ -160,7 +160,7 @@ def makeMap(address):
   
   makeMarker(m, df_subway_distance, 'green', 'train')
   makeMarker(m, df_bus_distance, 'green', 'bus')
-  makeMarker(m, df_hospital_distance, 'white', 'plus')
+  makeMarker(m, df_hospital_distance, 'red', 'plus')
   makeMarker(m, df_museum_distance, 'blue', 'landmark')
   return m
 
