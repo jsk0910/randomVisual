@@ -111,7 +111,7 @@ def makeMap(address):
       {
         "name": "1km",
         "type": "pie",
-        "radius": ["40%", "70%"],
+        "radius": ["40%", "60%"],
         "avoidLabelOverlap": False,
         "itemStyle": {
           "borderRadius": 15,
@@ -133,7 +133,7 @@ def makeMap(address):
       {
         "name": "3km",
         "type": "pie",
-        "radius": ["70%", "100%"],
+        "radius": ["60%", "80%"],
         "avoidLabelOverlap": False,
         "itemStyle": {
           "borderRadius": 20,
