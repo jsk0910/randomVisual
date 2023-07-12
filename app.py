@@ -84,9 +84,9 @@ def makeMap(address):
   options = {
     "tooltip": {"trigger": "item"},
     "legend": {"top": "0%", "left": "center"},
-    "label": "500m",
     "series": [
       {
+        "title": "500m",
         "name": "500m",
         "type": "pie",
         "radius": ["20%", "40%"],
