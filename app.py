@@ -157,7 +157,7 @@ def makeMarker(m, df, color, icon):
   for idx, row in df.iterrows():
     loc = row['latlon'][1:-1].split(', ')
     folium.Marker(loc,
-                  popup=row['name'],
+                  popup=folium.Popup(row['name'], max_width=300),
                   tooltip=row['name'],
                   icon=(folium.Icon(color=color, icon=icon, prefix='fa'))
                  ).add_to(m)
