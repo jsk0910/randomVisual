@@ -160,7 +160,7 @@ def makeMap(address):
   makeMarker(m, df_subway_distance, 'green', 'train')
   makeMarker(m, df_bus_distance, 'green', 'bus')
   makeMarker(m, df_hospital_distance, 'white', 'plus')
-  makeMarker(m, df_museum_distance, 'blue', folium.features.CustomIcon('./images/building-columns', icon_size=(14, 14)))
+  makeMarker(m, df_museum_distance, 'blue', folium.features.CustomIcon('./images/building-columns.PNG', icon_size=(14, 14)))
   return m
 
 # Marker
