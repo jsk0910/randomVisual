@@ -108,7 +108,7 @@ def makeMap(address):
   options = {
     "title": {"show": True, "subtext": "500m", "subtextStyle": {"align": "center", "verticalAlign": "middle"}},
     "tooltip": {"trigger": "item"},
-    "legend": {"top": "0%", "left": "center"},
+    "legend": {"top": "0%", "left": "center", "itemStyle": {"color": rgb(255, 255, 255)}},
     "series": [
       {
         "name": "500m",
