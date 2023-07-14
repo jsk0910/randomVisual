@@ -75,7 +75,7 @@ def makeMap(address):
   df_bus_distance = calculate_distance(df_bus, center_xy)
   df_hospital_distance = calculate_distance(df_hospital, center_xy)
   df_museum_distance = calculate_distance(df_museum, center_xy)
-  df_starbucks = calculate_distance(df_starbucks, center_xy)
+  df_starbucks_distance = calculate_distance(df_starbucks, center_xy)
 
   df_subway_distance = df_subway_distance.astype({'latlon' : 'object'})
   df_bus_distance = df_bus_distance.astype({'latlon' : 'object'})
