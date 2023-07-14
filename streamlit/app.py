@@ -27,7 +27,15 @@ from Database.database import connectDB
 
 # -- import modules end --
 
-# calculator distance
+# func: address to lat, lon
+def addr_to_lat_lon(addr):
+  url = f"https://dapi.kakao.com/v2/local/search/address.json?query={addr}"
+  headers = {"Authorization": "KakaoAK " + API_KEY}
+  result = json.loads(str(requests.get(url, headers=headers).text))
+  match_first = result['documents'][0]['address']
+  return float(match_first['y']), float(match_first['x'])
+
+# func: calculator distance
 def calculate_distance(df, center_xy):
   df_distance = pd.DataFrame()
   distance_list = []
@@ -47,7 +55,7 @@ def calculate_distance(df, center_xy):
 
   return df_distance
 
-# 지도 생성
+# func: 지도 생성
 def makeMap(address):
   center_xy = list(addr_to_lat_lon(address))
   m = folium.Map(location=center_xy, zoom_start=16)
@@ -173,7 +181,7 @@ def makeMap(address):
   makeMarker(m, df_museum_distance, 'blue', 'landmark')
   return m
 
-# Marker
+# func: make Marker in map
 def makeMarker(m, df, color, icon):
   for idx, row in df.iterrows():
     loc = row['latlon'][1:-1].split(', ')
@@ -187,27 +195,20 @@ def makeMarker(m, df, color, icon):
 def initRouter():
   return stx.Router({'/select': selectWork, '/map': map})
 
-# define 직장선택
+# page: define 직장선택
 def selectWork():
   st.title('selectWork')
   if st.button('선택'):
     st.session_state.address = "부산광역시 해운대구 수영강변대로 140"
     router.route('/map')
 
-# define 지도 탭
+# page: define 지도 탭
 def map():
   address = st.session_state.address
   st.title('Map')
   m = makeMap(address)
 
   st_folium(m, width=725, returned_objects=[])
-
-def addr_to_lat_lon(addr):
-  url = f"https://dapi.kakao.com/v2/local/search/address.json?query={addr}"
-  headers = {"Authorization": "KakaoAK " + API_KEY}
-  result = json.loads(str(requests.get(url, headers=headers).text))
-  match_first = result['documents'][0]['address']
-  return float(match_first['y']), float(match_first['x'])
 
 def main():
   current_route = router.get_url_route()
