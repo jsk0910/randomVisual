@@ -1,14 +1,18 @@
+# -- import modules start --
+# folium
 import folium
-import streamlit as st
 
+# streamlit
+import streamlit as st
 from streamlit_folium import st_folium
 import extra_streamlit_components as stx
 from streamlit_echarts import st_echarts
 
+# requests data
 import json
 import requests
 
-# data
+# data analysis
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -17,6 +21,11 @@ from matplotlib.spines import Spine
 from matplotlib.transforms import Affine2D
 import matplotlib as mpl
 import math
+
+# customized modules
+from ./Database/database import connectDB
+
+# -- import modules end --
 
 # calculator distance
 def calculate_distance(df, center_xy):
