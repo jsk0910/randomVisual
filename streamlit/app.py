@@ -69,16 +69,19 @@ def makeMap(address):
   df_bus = pd.read_csv('./data/bus.csv')
   df_hospital = pd.read_csv('./data/hospital.csv')
   df_museum = pd.read_csv('./data/museum.csv')
+  df_starbucks = pd.read_csv('./data/starbucks_busan.csv')
   
   df_subway_distance = calculate_distance(df_subway, center_xy)
   df_bus_distance = calculate_distance(df_bus, center_xy)
   df_hospital_distance = calculate_distance(df_hospital, center_xy)
   df_museum_distance = calculate_distance(df_museum, center_xy)
+  df_starbucks = calculate_distance(df_starbucks, center_xy)
 
   df_subway_distance = df_subway_distance.astype({'latlon' : 'object'})
   df_bus_distance = df_bus_distance.astype({'latlon' : 'object'})
   df_hospital_distance = df_hospital_distance.astype({'latlon' : 'object'})
   df_museum_distance = df_museum_distance.astype({'latlon' : 'object'})
+  df_starbucks_distance = df_starbucks_distance.astype({'latlon' : 'object'})
 
   df_graph = pd.DataFrame({'distance': ['500m', '1km', '3km']})
 
@@ -97,6 +100,10 @@ def makeMap(address):
   df_graph['museum'] = [len(df_museum_distance.loc[df_museum_distance['distance'] <= 0.5]),
                     len(df_museum_distance.loc[(df_museum_distance['distance'] > 0.5) & (df_museum_distance['distance'] <= 1.0)]),
                     len(df_museum_distance.loc[(df_museum_distance['distance'] > 1.0) & (df_museum_distance['distance'] <= 3.0)])]
+  
+  df_graph['starbucks'] = [len(df_starbucks_distance.loc[df_starbucks_distance['distance'] <= 0.5]),
+                    len(df_starbucks_distance.loc[(df_starbucks_distance['distance'] > 0.5) & (df_starbucks_distance['distance'] <= 1.0)]),
+                    len(df_starbucks_distance.loc[(df_starbucks_distance['distance'] > 1.0) & (df_starbucks_distance['distance'] <= 3.0)])]
 
   options = {
     "title": {"show": True, "subtext": "500m", "subtextStyle": {"align": "center", "verticalAlign": "middle"}},
@@ -123,6 +130,7 @@ def makeMap(address):
           {"value": int(df_graph.iloc[0]['bus']), "name": "버스정류장"},
           {"value": int(df_graph.iloc[0]['hospital']), "name": "병원"},
           {"value": int(df_graph.iloc[0]['museum']), "name": "박물관/미술관"},
+          {"value": int(df_graph.iloc[0]['starbucks']), "name": "스타벅스"},
         ],
       },
       {
@@ -145,6 +153,7 @@ def makeMap(address):
           {"value": int(df_graph.iloc[1]['bus']), "name": "버스정류장"},
           {"value": int(df_graph.iloc[1]['hospital']), "name": "병원"},
           {"value": int(df_graph.iloc[1]['museum']), "name": "박물관/미술관"},
+          {"value": int(df_graph.iloc[1]['starbucks']), "name": "스타벅스"},
         ],
       },
       {
@@ -167,6 +176,7 @@ def makeMap(address):
           {"value": int(df_graph.iloc[2]['bus']), "name": "버스정류장"},
           {"value": int(df_graph.iloc[2]['hospital']), "name": "병원"},
           {"value": int(df_graph.iloc[2]['museum']), "name": "박물관/미술관"},
+          {"value": int(df_graph.iloc[2]['starbucks']), "name": "스타벅스"},
         ],
       }
     ],
@@ -175,10 +185,11 @@ def makeMap(address):
     options=options, height=500
   )
   
-  makeMarker(m, df_subway_distance, 'green', 'train')
-  makeMarker(m, df_bus_distance, 'green', 'bus')
+  makeMarker(m, df_subway_distance, 'orange', 'train')
+  makeMarker(m, df_bus_distance, 'orange', 'bus')
   makeMarker(m, df_hospital_distance, 'red', 'plus')
   makeMarker(m, df_museum_distance, 'blue', 'landmark')
+  makeMarker(m, df_starbucks_distance, 'green', 'mug-saucer')
   return m
 
 # func: make Marker in map
