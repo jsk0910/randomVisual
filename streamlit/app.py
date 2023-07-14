@@ -23,7 +23,7 @@ import matplotlib as mpl
 import math
 
 # customized modules
-from \/Database\/database import connectDB
+from Database.database import connectDB
 
 # -- import modules end --
 
