@@ -126,7 +126,7 @@ def makeMap(address):
         },
         "labelLine": {"show": False},
         "itemStyle": {
-          "color": "#c23531",
+          "color": ["#FFC73E", "#F9D11F", "#F55200", "#F50016", "#43D105"],
           "shadowBlur": 200,
           "shadowColor": "rgba(0, 0, 0, 0.5)"
         },
