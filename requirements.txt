@@ -6,3 +6,4 @@ streamlit-echarts
 pandas
 numpy
 matplotlib
+pymongo
