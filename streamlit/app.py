@@ -57,10 +57,10 @@ def makeMap(address):
                 icon=(folium.Icon(color='blue', icon='building', prefix='fa'))
                 ).add_to(m)
   
-  df_subway = pd.read_csv('./subway.csv')
-  df_bus = pd.read_csv('./bus.csv')
-  df_hospital = pd.read_csv('./hospital.csv')
-  df_museum = pd.read_csv('./museum.csv')
+  df_subway = pd.read_csv('./data/subway.csv')
+  df_bus = pd.read_csv('./data/bus.csv')
+  df_hospital = pd.read_csv('./data/hospital.csv')
+  df_museum = pd.read_csv('./data/museum.csv')
   
   df_subway_distance = calculate_distance(df_subway, center_xy)
   df_bus_distance = calculate_distance(df_bus, center_xy)
