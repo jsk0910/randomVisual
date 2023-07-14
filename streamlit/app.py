@@ -120,7 +120,6 @@ def makeMap(address):
           "borderColor": "#fff",
           "borderWidth": 2,
         },
-        'color':JsCode('new echarts.graphic.LinearGradient(0,0,0,1,[{"offset":0,"color":"red"},{"offset":1,"color":"yellow"}])'),
         "label": {"show": False, "position": "center"},
         "emphasis": {
           "label": {"show": True, "fontSize": "20", "fontWeight": "bold"}
