@@ -120,16 +120,12 @@ def makeMap(address):
           "borderColor": "#fff",
           "borderWidth": 2,
         },
+        'color':JsCode('new echarts.graphic.LinearGradient(0,0,0,1,[{"offset":0,"color":"red"},{"offset":1,"color":"yellow"}])'),
         "label": {"show": False, "position": "center"},
         "emphasis": {
           "label": {"show": True, "fontSize": "20", "fontWeight": "bold"}
         },
         "labelLine": {"show": False},
-        "itemStyle": {
-          "color": ["#FFC73E", "#F9D11F", "#F55200", "#F50016", "#43D105"],
-          "shadowBlur": 200,
-          "shadowColor": "rgba(0, 0, 0, 0.5)"
-        },
         "data": [
           {"value": int(df_graph.iloc[0]['subway']), "name": "지하철역"},
           {"value": int(df_graph.iloc[0]['bus']), "name": "버스정류장"},
