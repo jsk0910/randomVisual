@@ -53,7 +53,7 @@ def calculate_distance(df, center_xy):
   df_distance = df_distance.drop_duplicates()
   df_distance['distance'] = distance_list
 
-  return df_distance
+  return df_distance # 만들어진 데이터프레임 리턴
 
 # func: 지도 생성
 def makeMap(address):
