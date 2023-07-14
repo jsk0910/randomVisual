@@ -108,7 +108,7 @@ def makeMap(address):
   options = {
     "title": {"show": True, "subtext": "500m", "subtextStyle": {"align": "center", "verticalAlign": "middle"}},
     "tooltip": {"trigger": "item"},
-    "legend": {"top": "0%", "left": "center", "itemStyle": {"color": rgb(255, 255, 255)}},
+    "legend": {"top": "0%", "left": "center",},
     "series": [
       {
         "name": "500m",
@@ -125,6 +125,11 @@ def makeMap(address):
           "label": {"show": True, "fontSize": "20", "fontWeight": "bold"}
         },
         "labelLine": {"show": False},
+        "itemStyle": {
+          "color": "#c23531",
+          "shadowBlur": 200,
+          "shadowColor": "rgba(0, 0, 0, 0.5)"
+        },
         "data": [
           {"value": int(df_graph.iloc[0]['subway']), "name": "지하철역"},
           {"value": int(df_graph.iloc[0]['bus']), "name": "버스정류장"},
