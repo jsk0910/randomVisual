@@ -178,12 +178,6 @@ def makeMap(address):
           {"value": int(df_graph.iloc[2]['starbucks']), "name": "스타벅스"},
         ],
       },
-      {
-        "type": "scatter",
-        "data": [
-          {"value": [0, 0], "label": {"formatter": '500m', "rich": {"tc": {"align": "center", "verticalAlign": "bottom"}}}}
-        ]
-      }
     ],
   }
   st_echarts(
@@ -213,7 +207,7 @@ def initRouter():
 
 # page: define 직장선택
 def selectWork():
-  st.title('selectWork')
+  st.title('직장 선택')
   if st.button('선택'):
     st.session_state.address = "부산광역시 해운대구 수영강변대로 140"
     router.route('/map')
@@ -221,7 +215,7 @@ def selectWork():
 # page: define 지도 탭
 def map():
   address = st.session_state.address
-  st.title('Map')
+  st.title('주변 인프라')
   m = makeMap(address)
 
   st_folium(m, width=725, returned_objects=[])
