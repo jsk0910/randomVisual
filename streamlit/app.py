@@ -106,7 +106,6 @@ def makeMap(address):
                     len(df_starbucks_distance.loc[(df_starbucks_distance['distance'] > 1.0) & (df_starbucks_distance['distance'] <= 3.0)])]
 
   options = {
-    "title": {"show": True, "subtext": "500m", "subtextStyle": {"align": "center", "verticalAlign": "middle"}},
     "tooltip": {"trigger": "item"},
     "legend": {"top": "0%", "left": "center",},
     "series": [
