@@ -199,7 +199,7 @@ def makeMap(address):
   makeMarker(m, df_hospital_distance, 'red', 'plus')
   makeMarker(m, df_museum_distance, 'pink', 'institution')
   makeMarker(m, df_starbucks_distance, 'green', 'coffee')
-  makeMarker(m, df_exercise_distance, 'black', 'dumbbell')
+  makeMarker(m, df_exercise_distance, 'black', 'soccer-ball-o')
   return m
 
 # func: make Marker in map
