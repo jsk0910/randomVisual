@@ -119,7 +119,7 @@ def makeMap(address):
           "borderColor": "#fff",
           "borderWidth": 2,
         },
-        "label": {"show": False, "position": "center"},
+        "label": {"show": True, "position": "center"},
         "emphasis": {
           "label": {"show": True, "fontSize": "20", "fontWeight": "bold"}
         },
