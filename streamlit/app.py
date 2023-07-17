@@ -177,6 +177,12 @@ def makeMap(address):
           {"value": int(df_graph.iloc[2]['museum']), "name": "박물관/미술관"},
           {"value": int(df_graph.iloc[2]['starbucks']), "name": "스타벅스"},
         ],
+      },
+      {
+        "type": "scatter",
+        "data": [
+          {"value": [0, 0], label: {"formatter": '500m', "rich": {"tc": {"align": "center", "verticalAlign": "bottom"}}}}
+        ]
       }
     ],
   }
