@@ -181,7 +181,7 @@ def makeMap(address):
       {
         "type": "scatter",
         "data": [
-          {"value": [0, 0], label: {"formatter": '500m', "rich": {"tc": {"align": "center", "verticalAlign": "bottom"}}}}
+          {"value": [0, 0], "label": {"formatter": '500m', "rich": {"tc": {"align": "center", "verticalAlign": "bottom"}}}}
         ]
       }
     ],
